@@ -111,6 +111,27 @@ A versão 3.11.7, pode variar com o tempo e com versão da sua instalação
 
 Para finalizar a instalação do pré-requisito Expo, você precisar ir até a Google Play (https://play.google.com/store/apps/details?id=host.exp.exponent) e instalar o Expo Client no seu celular.
 
+#### instalando o Android Debug Bridge (adb)
+
+Abra um terminal como adminstrador e execute o seguinte comando:
+
+```
+choco install adb
+```
+
+#### Ative a depuração do adb no seu dispositivo
+
+> Para usar o adb com um dispositivo conectado via USB, você precisa ativar a opção Depuração USB nas configurações do sistema do dispositivo, em Opções do desenvolvedor.
+
+> No Android 4.2 e versões posteriores, a tela "Opções do desenvolvedor" normalmente fica oculta por padrão. Para exibi-la, acesse Config. > Sobre o dispositivo e toque em Número da versão sete vezes. Retorne à tela anterior para encontrar as Opções do desenvolvedor na parte inferior.
+
+##### Em alguns dispositivos, a tela "Opções do desenvolvedor" pode ter uma localização ou um nome diferente.
+
+> Agora você pode conectar seu dispositivo a uma porta USB. Verifique se o dispositivo está conectado executando adb devices no terminal de sua preferência. 
+
+> Se eles estiverem conectados, o nome do dispositivo estará listado como “device”.
+
+> Observação: ao conectar um dispositivo com Android 4.2.2 ou versões posteriores, o sistema mostrará uma caixa de diálogo perguntando se o usuário quer aceitar uma Chave RSA que permite a depuração por meio do computador. Esse mecanismo de segurança protege dispositivos de usuários, porque garante que a depuração USB e outros comandos do adb não sejam executados, a não ser que o você consiga desbloquear o dispositivo e confirmar a caixa de diálogo.
 
 ### Installing and Running
 
@@ -129,6 +150,21 @@ Com o dowloand do repositório concluido, descompacte (caso tenha baixado em for
  ```
  Aguarde um pouco e você deverar ver uma mensagem semelhante a isto:
  > API, online!
+ 
+ Caso está mensagem não apareça, pode acontecer que a porta 3333 (Porta onde a API irar receber todas as requisições efetuadas para ela) já possa está sendo usador por algum outro serviço, para resolver este problema você tem duas solução.
+ 
+ 1. Finaliza o processo que está ocupando a porta 3333
+ 2. Abra a pasta API em um editor de texto (Recomendo o Visual Studio Code), abra o arquivo .env e altera a chave PORT_API = 3333 para PORT_API = PORTA DE SUA ESCOLHA OU QUE ESTEJA LIVRE NO SEU COMPUTADOR. Feito isso, feche este arquivo e não mexa em mais nada!.
+ 
+ No terminal onde a API está aberta, digite o seguinte comando: 
+ ```
+ rs
+ ```
+ 
+ Pressine a tecla enter e aguarde a mensaagem:
+ > API, online!
+ 
+ Se aparecer um novo erro, crie uma issue neste respositorio, em breve o bug será resolvido.
 
 #### Browser
 
@@ -162,6 +198,7 @@ Com isso feito, conecte seu celular ao computador via USB, abra um novo terminal
 ```
 adb reverse tcp:3333 tcp:3333
 ```
+se você alterou a porta da API, no comando acima em tcp:INSIRA A PORTA ALTERADA POR VOCÊ
 
 Feito isso, no aplicativo Expo Client, clique na opção 'Scan QR Code' e escaneia o QR CODE localizado logo abaixo de tunnel.
 
