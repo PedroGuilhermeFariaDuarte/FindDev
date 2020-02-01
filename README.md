@@ -3,21 +3,21 @@ Neste repositório você vai encontrar uma aplicação completa (Mobile,Browser,
 
 # About App
 
-A ideia deste app surgiu com um problema de muitos programdores, a necessiade de encontrar outra pessoa que trabalha com as mesma tecnologias. Assim surgiu o FindDev, um aplicativo idealizado pela rocketseat durante a semana omnistack, um evento promovido por eles durante uma semana.
+A ideia deste app surgiu com um problema de muitos programadores, a necessiade de encontrar outras pessoas que trabalham com as mesmas tecnologias. Assim surgiu o FindDev, um aplicativo idealizado pela rocketseat durante a semana omnistack, um evento promovido por eles durante uma semana.
 
 ## Getting Started
 
-Durante o desenvolvimento do aplicativo, foi implementado algumas funcionalidades a mais e também algumas melhorias na interface.
+Durante o desenvolvimento do aplicativo, implementei algumas funcionalidades a mais e também algumas melhorias na interface.
 
-O app dispões de uma maior interação entres os usuarios, fornecendo funções como Seguir ( semelhante ao instragam ) e disparos de eventos em tempo real, tanto entre o mobile como no browser.
+O app dispõe de uma maior interação entres os usuarios, fornecendo funções como Seguir ( semelhante ao instragam ) e disparos de eventos entre usuarios em tempo real, tanto entre o mobile como no browser.
 
-- No navegador  Todas a funcionalidades do app se baseia no cadastro do usuario do github e da localização do usuario, com essas informações sendo utilizadas para gerar uma maior interação entre os usuarios e também sendo utilizado no mobile para fins de localização e filtragem.
+- No navegador  Todas a funcionalidades do app se baseiam no cadastro do usuario do github e da localização do usuario, com essas informações sendo utilizadas para gerar uma maior interação entre os usuarios e também sendo utilizada no mobile para fins de localização e filtragem.
 
-- Na versão mobile é implementado todas as funcionalidades paras localização de uma pessoa que trabalhe com alguma tecnologia de seu interesse, permitindo dessa forma uma contanto mais rapido com a mesma e quem sabe na coloboração para o seu projeto.
+- Na versão mobile é implementado todas as funcionalidades para a localização de pessoas que trabalham com alguma tecnologia de seu interesse, permitindo dessa forma uma contato mais rapido com a mesma e quem sabe na coloboração para algum projeto.
 
-Então para começar a utiliza-lo vamos ao pré-requisitos e a sua instalação.
+Então para começar a utiliza o aplicativo, vamos ao pré-requisitos e a sua instalação.
 
-### Prerequisites
+### Pre-requisites
 
 1.  Instalando o Yarn
  > Para instalar o yarn, você possui duas formas.
