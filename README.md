@@ -60,90 +60,109 @@ Você verá algo semelhante a isto:
 
 A versão 12.14.0 pode variar com o tempo e com a versão que você baixou.
 
+3.  Instalando o Expo
+ > Para instalar o Expo, você possui apenas uma forma.
+ 
+1. Via chocolatey, instale o NPM
+```
+choco install npm
+```
+Após a instalação do NPM, no mesmo terminal digite o seguinte comando:
+```
+npm install expo-cli --global
+```
+Feito isso, aguarde a finalização da instalação e  digite o seguinte comando: 
+```
+ expo -V
+```
+Caso tudo de certo você poderar ver algo semelhante a isto:
+> 3.11.7
 
-### Installing
+Lembrando que a versão 3.11.7, pode variar com o tempo e com versão da sua instalação 
+
+Se o seu terminal apresentar um erro como 'comando desconhecido' ou algo semelhante, você precisará configurar algumas permissões do seu terminal. Para isso, no mesmo terminal, digite o seguinte comando:
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force
+```
+Execute o comando, caso apareça a seguinte mensagem: 
+
+> Alteração da Política de Execução
+A política de execução ajuda a proteger contra scripts não confiáveis. A alteração da
+política de execução pode implicar exposição aos riscos de segurança descritos no tópico da
+ajuda about_Execution_Policies em https://go.microsoft.com/fwlink/?LinkID=135170. Deseja
+alterar a política de execução?
+[S] Sim  [A] Sim para Todos  [N] Não  [T] Não para Todos  [U] Suspender  [?] Ajuda
+(o padrão é "N"):
+
+Digite S, e pressione a teclar enter.
+
+Em seguida digite este comando:
+```
+Unblock-File -Path C:\Users\SEU_NOME_DE_USUARIO_NO_COMPUTADOR\AppData\Roaming\npm\expo.ps1
+```
+Agora, novamente repita o seguinte processo:
+```
+ expo -V
+```
+Caso tudo de certo você poderar ver algo semelhante a isto:
+> 3.11.7
+  
+A versão 3.11.7, pode variar com o tempo e com versão da sua instalação
+
+Para finalizar a instalação do pré-requisito Expo, você precisar ir até a Google Play (https://play.google.com/store/apps/details?id=host.exp.exponent) e instalar o Expo Client no seu celular.
+
+
+### Installing and Running
 
 Com os pré-requisitos instalados, agora você precisa baixar este repositório.
 
 Com o dowloand do repositório concluido, descompacte (caso tenha baixado em formato zip) e abra a pasta API no terminal de sua escolha. Feito isso execute os seguintes comandos:
 
-1.
-```
-yarn install
-```
-2. Após a finalização da instalação, no mesmo terminal e pasta, execute o seguinte comando
-```
-yarn dev
-```
-Aguarde um pouco e você deverar ver uma mensagem semelhante a isto:
-> API, online!
+#### API
+ 1.
+ ```
+ yarn install
+ ```
+ 2. Após a finalização da instalação, no mesmo terminal e pasta, execute o seguinte comando
+ ```
+ yarn dev
+ ```
+ Aguarde um pouco e você deverar ver uma mensagem semelhante a isto:
+ > API, online!
 
+#### Browser
 
-Após a instalação e execução da API, repita o primeiro passo, porém, agora, na pasta browser
+ Após a instalação e execução da API, repita o primeiro passo, porém, agora, na pasta browser
 
-1. Após a finalização da instalação, no mesmo terminal e pasta, execute o seguinte comando
+ 1. Após a finalização da instalação, no mesmo terminal e pasta, execute o seguinte comando
+ ```
+ yarn start
+ ```
+ Aguarde um pouco e uma nova janela/aba de seu navegador padrão irar abrir, aguarde um pouco, a interface da aplicação irar  aparecer para você.
+
+#### Mobile
+Após a instalação do pré-requisito Expo, agora abra a pasta mobile no seu terminal em que você instalou e configurou o Expo, e execute o seguinte comando:
 ```
+expo install
+```
+
+Aguarde a instalação, pode demorar um pouco.
+
+Com a instalção concluida, execute o seguinte comando:
+``` 
 yarn start
 ```
-Aguarde um pouco e uma nova janela/aba de seu navegador padrão irar abrir, aguarde um pouco, a interface da aplicação irar aparecer para você.
 
+Durante a inicialização, uma nova guia/janela de seu navegador padrão irar abrir, com o fim da inicialização, no terminal, você irar ver um QR CODE, isso significa que tudo deu certo.
 
-```
-until finished
-```
+Com o seu celular que você instalou o Expo Client (informado na seção de pré-requisitos), abra o aplicativo, agora vá até a guia/janela que foi aberta, e clique na opção 'tunnel' logo acima do QR CODE.
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Com isso feito, conecte seu celular ao computador via USB, abra um novo terminal e digite o seguinte comando: 
 
 ```
-Give an example
+adb reverse tcp:3333 tcp:3333
 ```
 
-### And coding style tests
+Feito isso, no aplicativo Expo Client, clique na opção 'Scan QR Code' e escaneia o QR CODE localizado logo abaixo de tunnel.
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Aguarde o building da aplicação e sua instalação.
