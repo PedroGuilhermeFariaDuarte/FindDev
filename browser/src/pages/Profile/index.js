@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 // Icon
-import { MdKeyboardBackspace } from "react-icons/md";
+import { MdKeyboardBackspace } from 'react-icons/md';
 
 // Global styles
-import { Container } from "../../components/Container";
-import { ArrorBack } from "../../components/ArrorBack";
+import { Container } from '../../components/Container';
+import { ArrorBack } from '../../components/ArrorBack';
 
 // Style
 import {
@@ -14,11 +14,11 @@ import {
   UserInfo,
   Info,
   TagsContainer,
-  StatesContainer
-} from "./styles";
+  StatesContainer,
+} from './styles';
 
 // Services
-import api from "../../services/Api";
+import api from '../../services/Api';
 
 function Profile({ history }) {
   const [profile, setProfile] = useState({
@@ -29,16 +29,16 @@ function Profile({ history }) {
     following: [],
     idusuario: null,
     name: null,
-    email: null
+    email: null,
   });
 
-  const meuID = sessionStorage.getItem("@findev/session");
+  const meuID = sessionStorage.getItem('@findev/session');
 
   async function handlerFollower() {
     try {
-      const { data: followingResponse } = await api.post("follower", {
+      const { data: followingResponse } = await api.post('follower', {
         seguidorID: meuID,
-        idusuario: profile.idusuario
+        idusuario: profile.idusuario,
       });
 
       if (followingResponse.code === 6) {
@@ -56,9 +56,9 @@ function Profile({ history }) {
   async function handlerUnFollower() {
     try {
       const { data: seguindoResponse } = await api.delete(
-        "follower/unfollowing",
+        'follower/unfollowing',
         {
-          params: { seguidorID: meuID, idusuario: profile.idusuario }
+          params: { seguidorID: meuID, idusuario: profile.idusuario },
         }
       );
 
@@ -74,14 +74,14 @@ function Profile({ history }) {
   }
 
   function handlerBackPage() {
-    history.push("/devs");
+    history.push('/devs');
   }
 
   useEffect(() => {
     async function loadDev() {
       try {
-        const response = await api.get("user", {
-          params: { id: history.location.state.id }
+        const response = await api.get('user', {
+          params: { id: history.location.state.id },
         });
 
         if (response.data.code === 6) {
@@ -90,7 +90,7 @@ function Profile({ history }) {
         }
 
         if (response.data.length === 0) {
-          history.push("/login");
+          history.push('/login');
           return;
         }
 
@@ -100,10 +100,10 @@ function Profile({ history }) {
           avatar_url,
           followers,
           following,
-          _id: idusuario
+          _id: idusuario,
         } = response.data;
 
-        const { name, email } = response.data;
+        const { name, email } = response.data.user;
 
         setProfile({
           techs,
@@ -113,17 +113,17 @@ function Profile({ history }) {
           following,
           idusuario,
           name,
-          email
+          email,
         });
       } catch (error) {
-        toast.error("TESTE" + error.message);
+        toast.error('TESTE' + error.message);
       }
     }
 
     function handlerVerifySession() {
-      const sessionID = sessionStorage.getItem("@findev/session");
+      const sessionID = sessionStorage.getItem('@findev/session');
       if (!sessionID) {
-        history.push("/");
+        history.push('/');
       } else {
         loadDev();
       }
@@ -164,7 +164,7 @@ function Profile({ history }) {
               </button>
             )
           ) : (
-            ""
+            ''
           )}
           <TagsContainer>
             <ul>
